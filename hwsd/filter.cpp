@@ -116,6 +116,7 @@ bool MirrorFilter::operator() ( const GPUInfos& current,
         const GPUInfo& info = *i;
         if( info.id == candidate.id &&
             info.session == candidate.session &&
+            info.port == candidate.port &&
             info.device == candidate.device &&
             info.pvp[0] == candidate.pvp[0] && info.pvp[1] == candidate.pvp[1] )
         {
@@ -135,7 +136,7 @@ class SessionFilter
 public:
     explicit SessionFilter( const std::string& name ) : name_( name ) {}
 
-    const std::string& name_;
+    const std::string name_;
 };
 }
 
